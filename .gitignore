@@ -5,42 +5,60 @@ node_modules/
 # Build outputs
 dist/
 build/
-.next/
-out/
+target/
 
-# Environment variables
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
 .env
 .env.local
 .env.*
 
-# Python cache
+# Editors
+.vscode/
+.idea/
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Logs
-*.log
+# Compiled JavaScript
+*.js.map
+*.jsx.map
+*.ts.map
+*.tsx.map
 
-# Coverage reports
+# Coverage
 coverage/
 htmlcov/
 .coverage
 
-# IDE files
-.vscode/
-.idea/
+# IDE
 *.swp
 *.swo
 
-# OS files
+# System
 .DS_Store
 Thumbs.db
 
-# Testing
-.jest/
-.nyc_output/
+# MyPy
+.mypy_cache/
 
-# TypeScript
-*.tsbuildinfo
+# Pytest
+.pytest_cache/
+
+# Babel
+.cache/
+
+# Vite
+.vite/
+
+# Temporary conversion files
+*.bak
+*.orig
+*.rej
 ```
