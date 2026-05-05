@@ -1,4 +1,4 @@
-import { jsx, jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 const ImageWithLoader = ({ className = "", parentClassName = "", alt = "", priority = false, sources = [], loading, decoding, fetchPriority, sizes, srcSet, onLoad, onError, ...props }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -17,13 +17,7 @@ const ImageWithLoader = ({ className = "", parentClassName = "", alt = "", prior
             onError(event);
         }
     };
-    const imageNode = jsx("img", { className: `${className} transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`, alt, onLoad: handleLoad, onError: handleError, loading: resolvedLoading, decoding: resolvedDecoding, fetchPriority: resolvedFetchPriority, sizes, srcSet, ...props });
-    return jsxs("div", { className: `relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${parentClassName}`, children: [
-            !isLoaded && jsx("div", { className: "absolute inset-0 z-10 bg-slate-200 dark:bg-slate-700 animate-pulse flex items-center justify-center" }),
-            sources.length > 0 ? jsxs("picture", { children: [
-                    sources.map((source, index) => jsx("source", { srcSet: source.srcSet, type: source.type, sizes: source.sizes || sizes, media: source.media }, `${source.srcSet}-${index}`)),
-                    imageNode
-                ] }) : imageNode
-        ] });
+    const imageNode = _jsx("img", { className: `${className} transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`, alt: alt, onLoad: handleLoad, onError: handleError, loading: resolvedLoading, decoding: resolvedDecoding, fetchPriority: resolvedFetchPriority, sizes: sizes, srcSet: srcSet, ...props });
+    return (_jsxs("div", { className: `relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${parentClassName}`, children: [!isLoaded && _jsx("div", { className: "absolute inset-0 z-10 bg-slate-200 dark:bg-slate-700 animate-pulse flex items-center justify-center" }), sources.length > 0 ? (_jsxs("picture", { children: [sources.map((source, index) => _jsx("source", { srcSet: source.srcSet, type: source.type, sizes: source.sizes || sizes, media: source.media }, `${source.srcSet}-${index}`)), imageNode] })) : imageNode] }));
 };
 export default ImageWithLoader;

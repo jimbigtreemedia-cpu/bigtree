@@ -1,5 +1,4 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import { jsx, jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useMemo, useState } from "react";
 import ImageWithLoader from "./ImageWithLoader";
 import { getVideoMimeTypeFromUrl, inferMediaTypeFromUrl, normalizeMediaUrl } from "./mediaUtils";
@@ -20,31 +19,8 @@ const CoverMedia = ({ src = "", alt = "", className = "", parentClassName = "", 
         setIsVideoReady(true);
     };
     if (mediaType !== "video") {
-        return _jsx(ImageWithLoader, { src: mediaSrc });
+        return _jsx(ImageWithLoader, { src: mediaSrc, alt: alt, className: className, parentClassName: parentClassName, priority: priority, loading: loading, decoding: decoding, fetchPriority: fetchPriority, sizes: sizes, srcSet: srcSet });
     }
-    return jsxs("div", {
-        className: `relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${parentClassName}`.trim(),
-        children: [
-            !isVideoReady && jsx("div", { className: "absolute inset-0 z-10 bg-slate-200 dark:bg-slate-700 animate-pulse" }),
-            jsxs("video", {
-                autoPlay,
-                loop,
-                muted,
-                playsInline,
-                controls,
-                preload,
-                className: `${className} transition-opacity duration-500 ${isVideoReady ? "opacity-100" : "opacity-0"}`.trim(),
-                poster: poster || undefined,
-                "aria-label": alt || "Video preview",
-                onLoadedData: handleVideoReady,
-                onCanPlay: handleVideoReady,
-                onError: handleVideoReady,
-                children: [
-                    videoMimeType ? jsx("source", { src: mediaSrc, type: videoMimeType }) : jsx("source", { src: mediaSrc }),
-                    "Your browser does not support the video tag."
-                ]
-            })
-        ]
-    });
+    return (_jsxs("div", { className: `relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${parentClassName}`.trim(), children: [!isVideoReady && _jsx("div", { className: "absolute inset-0 z-10 bg-slate-200 dark:bg-slate-700 animate-pulse" }), _jsxs("video", { autoPlay: autoPlay, loop: loop, muted: muted, playsInline: playsInline, controls: controls, preload: preload, className: `${className} transition-opacity duration-500 ${isVideoReady ? "opacity-100" : "opacity-0"}`.trim(), poster: poster || undefined, "aria-label": alt || "Video preview", onLoadedData: handleVideoReady, onCanPlay: handleVideoReady, onError: handleVideoReady, children: [videoMimeType ? _jsx("source", { src: mediaSrc, type: videoMimeType }) : _jsx("source", { src: mediaSrc }), "Your browser does not support the video tag."] })] }));
 };
 export default CoverMedia;

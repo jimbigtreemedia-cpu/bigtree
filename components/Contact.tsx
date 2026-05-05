@@ -1,4 +1,3 @@
-import { jsx, jsxs } from "react/jsx-runtime";
 
 import React, { useState } from "react";
 import { Send } from "lucide-react";
@@ -145,42 +144,46 @@ const Contact = () => {
     }
   };
 
-  return  jsx("section", { className: "py-32 bg-background-base dark:bg-slate-950 border-t border-black/5 dark:border-white/5 scroll-mt-28", id: "contact", children:  jsxs("div", { className: "max-w-3xl mx-auto px-6 lg:px-8", children: [
-     jsxs("div", { className: "text-center mb-16", children: [
-       jsx("h2", { className: "text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4", children: "Get in Touch" }),
-       jsx("p", { className: "text-slate-500 dark:text-slate-400 text-lg", children: "Connect with our professional editing team. Response within 2 hours." })
-    ] }),
-     jsxs("form", { className: "space-y-6 bg-white dark:bg-slate-900 p-10 rounded-3xl premium-border dark:border dark:border-slate-800 soft-shadow", onSubmit: handleSubmit, children: [
-       jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-         jsxs("div", { children: [
-           jsx("label", { htmlFor: CONTACT_FIELD_IDS.firstName, className: "block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3", children: "First Name" }),
-           jsx("input", { id: CONTACT_FIELD_IDS.firstName, "aria-invalid": Boolean(fieldErrors.firstName), "aria-describedby": fieldErrors.firstName ? `${CONTACT_FIELD_IDS.firstName}-error` : undefined, className: "w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600", placeholder: "Jane", type: "text", value: formData.firstName, onChange: (event) => updateField("firstName", event.target.value), required: true }),
-          fieldErrors.firstName &&  jsx("p", { id: `${CONTACT_FIELD_IDS.firstName}-error`, className: "mt-2 text-sm text-red-600 dark:text-red-400", children: fieldErrors.firstName })
-        ] }),
-         jsxs("div", { children: [
-           jsx("label", { htmlFor: CONTACT_FIELD_IDS.lastName, className: "block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3", children: "Last Name" }),
-           jsx("input", { id: CONTACT_FIELD_IDS.lastName, "aria-invalid": Boolean(fieldErrors.lastName), "aria-describedby": fieldErrors.lastName ? `${CONTACT_FIELD_IDS.lastName}-error` : undefined, className: "w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600", placeholder: "Doe", type: "text", value: formData.lastName, onChange: (event) => updateField("lastName", event.target.value), required: true }),
-          fieldErrors.lastName &&  jsx("p", { id: `${CONTACT_FIELD_IDS.lastName}-error`, className: "mt-2 text-sm text-red-600 dark:text-red-400", children: fieldErrors.lastName })
-        ] })
-      ] }),
-       jsxs("div", { children: [
-         jsx("label", { htmlFor: CONTACT_FIELD_IDS.email, className: "block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3", children: "Email" }),
-         jsx("input", { id: CONTACT_FIELD_IDS.email, "aria-invalid": Boolean(fieldErrors.email), "aria-describedby": fieldErrors.email ? `${CONTACT_FIELD_IDS.email}-error` : undefined, className: "w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600", placeholder: "jane@brand.com", type: "email", value: formData.email, onChange: (event) => updateField("email", event.target.value), required: true }),
-        fieldErrors.email &&  jsx("p", { id: `${CONTACT_FIELD_IDS.email}-error`, className: "mt-2 text-sm text-red-600 dark:text-red-400", children: fieldErrors.email })
-      ] }),
-       jsxs("div", { children: [
-         jsx("label", { htmlFor: CONTACT_FIELD_IDS.message, className: "block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3", children: "Message" }),
-         jsx("textarea", { id: CONTACT_FIELD_IDS.message, "aria-invalid": Boolean(fieldErrors.message), "aria-describedby": fieldErrors.message ? `${CONTACT_FIELD_IDS.message}-error` : undefined, className: "w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600", placeholder: "Project details...", rows: 4, value: formData.message, onChange: (event) => updateField("message", event.target.value), required: true }),
-        fieldErrors.message &&  jsx("p", { id: `${CONTACT_FIELD_IDS.message}-error`, className: "mt-2 text-sm text-red-600 dark:text-red-400", children: fieldErrors.message })
-      ] }),
-       jsx("input", { id: CONTACT_FIELD_IDS.website, type: "text", value: formData.website, onChange: (event) => updateField("website", event.target.value), tabIndex: -1, autoComplete: "off", className: "hidden", "aria-hidden": true }),
-      status.message &&  jsx("p", { id: CONTACT_FIELD_IDS.status, role: "status", "aria-live": status.type === "error" ? "assertive" : "polite", "aria-atomic": "true", className: `text-sm font-medium ${status.type === "error" ? "text-red-600 dark:text-red-400" : "text-green-600 dark:text-green-400"}`, children: status.message }),
-       jsxs("button", { className: "w-full py-5 bg-primary hover:bg-slate-800 dark:hover:bg-accent-teal text-white font-bold rounded-xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed", type: "submit", disabled: isSubmitting, children: [
-         jsx("span", { children: isSubmitting ? "Sending..." : "Send Message" }),
-         <Send size={20} />
-      ] })
-    ] })
-  ] }) });
+  return (
+    <section className="py-32 bg-background-base dark:bg-slate-950 border-t border-black/5 dark:border-white/5 scroll-mt-28" id="contact">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Get in Touch</h2>
+          <p className="text-slate-500 dark:text-slate-400 text-lg">Connect with our professional editing team. Response within 2 hours.</p>
+        </div>
+        <form className="space-y-6 bg-white dark:bg-slate-900 p-10 rounded-3xl premium-border dark:border dark:border-slate-800 soft-shadow" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor={CONTACT_FIELD_IDS.firstName} className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">First Name</label>
+              <input id={CONTACT_FIELD_IDS.firstName} aria-invalid={Boolean(fieldErrors.firstName)} aria-describedby={fieldErrors.firstName ? `${CONTACT_FIELD_IDS.firstName}-error` : undefined} className="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600" placeholder="Jane" type="text" value={formData.firstName} onChange={(event) => updateField("firstName", event.target.value)} required />
+              {fieldErrors.firstName && <p id={`${CONTACT_FIELD_IDS.firstName}-error`} className="mt-2 text-sm text-red-600 dark:text-red-400">{fieldErrors.firstName}</p>}
+            </div>
+            <div>
+              <label htmlFor={CONTACT_FIELD_IDS.lastName} className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Last Name</label>
+              <input id={CONTACT_FIELD_IDS.lastName} aria-invalid={Boolean(fieldErrors.lastName)} aria-describedby={fieldErrors.lastName ? `${CONTACT_FIELD_IDS.lastName}-error` : undefined} className="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600" placeholder="Doe" type="text" value={formData.lastName} onChange={(event) => updateField("lastName", event.target.value)} required />
+              {fieldErrors.lastName && <p id={`${CONTACT_FIELD_IDS.lastName}-error`} className="mt-2 text-sm text-red-600 dark:text-red-400">{fieldErrors.lastName}</p>}
+            </div>
+          </div>
+          <div>
+            <label htmlFor={CONTACT_FIELD_IDS.email} className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Email</label>
+            <input id={CONTACT_FIELD_IDS.email} aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? `${CONTACT_FIELD_IDS.email}-error` : undefined} className="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600" placeholder="jane@brand.com" type="email" value={formData.email} onChange={(event) => updateField("email", event.target.value)} required />
+            {fieldErrors.email && <p id={`${CONTACT_FIELD_IDS.email}-error`} className="mt-2 text-sm text-red-600 dark:text-red-400">{fieldErrors.email}</p>}
+          </div>
+          <div>
+            <label htmlFor={CONTACT_FIELD_IDS.message} className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Message</label>
+            <textarea id={CONTACT_FIELD_IDS.message} aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? `${CONTACT_FIELD_IDS.message}-error` : undefined} className="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-xl px-5 py-4 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-accent-teal focus:border-transparent outline-none transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600" placeholder="Project details..." rows={4} value={formData.message} onChange={(event) => updateField("message", event.target.value)} required />
+            {fieldErrors.message && <p id={`${CONTACT_FIELD_IDS.message}-error`} className="mt-2 text-sm text-red-600 dark:text-red-400">{fieldErrors.message}</p>}
+          </div>
+          <input id={CONTACT_FIELD_IDS.website} type="text" value={formData.website} onChange={(event) => updateField("website", event.target.value)} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+          {status.message && <p id={CONTACT_FIELD_IDS.status} role="status" aria-live={status.type === "error" ? "assertive" : "polite"} aria-atomic="true" className={`text-sm font-medium ${status.type === "error" ? "text-red-600 dark:text-red-400" : "text-green-600 dark:text-green-400"}`}>{status.message}</p>}
+          <button className="w-full py-5 bg-primary hover:bg-slate-800 dark:hover:bg-accent-teal text-white font-bold rounded-xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed" type="submit" disabled={isSubmitting}>
+            <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+            <Send size={20} />
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;
