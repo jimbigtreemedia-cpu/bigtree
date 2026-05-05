@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 
 import React, { useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
@@ -59,7 +60,7 @@ const ServiceDetailPage = () => {
        jsxs("div", { className: "grid xl:grid-cols-[minmax(0,1fr)_330px] gap-8 mb-14 items-start", children: [
          jsxs("div", { className: "space-y-6", children: [
            jsxs("div", { className: "relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800 shadow-xl", children: [
-             <CoverMedia src={service.image} alt={service.title} className="w-full h-full object-cover" parentClassName="aspect-square" priority sizes="(max-width: 1280px) 100vw />,
+             <CoverMedia src={service.image} alt={service.title} className="w-full h-full object-cover" parentClassName="aspect-square" priority sizes="(max-width: 1280px) 100vw" />,
              jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" }),
              jsxs("div", { className: "absolute left-4 right-4 bottom-4 flex items-end justify-between gap-4", children: [
                jsx("div", { className: "flex flex-wrap gap-2", children: service.tags.map((tag) =>  jsx("span", { className: "px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300 border border-white/40", children: tag }, tag)) }),

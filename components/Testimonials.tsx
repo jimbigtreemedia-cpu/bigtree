@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, Pause, Play, TrendingUp, CheckCircle2 } from "lucide-react";

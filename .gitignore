@@ -7,18 +7,12 @@ dist/
 build/
 target/
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
 # Environment variables
 .env
 .env.local
 .env.*
 
-# IDE specific
+# IDE files
 .vscode/
 .idea/
 *.swp
@@ -27,22 +21,28 @@ __pycache__/
 # Logs
 *.log
 
-# Coverage
+# Temp files
+*.tmp
+
+# Python cache (if present in project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# Temporary files
-*.tmp
+# Testing
+.mypy_cache/
+.pytest_cache/
 
-# OS specific
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Package lock files (already in your repo but good to ignore in general)
-package-lock.json
-yarn.lock
-
-# TypeScript
-*.tsbuildinfo
+# Original rules preserved
+*.log
 ```

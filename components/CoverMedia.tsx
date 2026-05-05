@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 
 import React, { useEffect, useMemo, useState } from "react";
 import ImageWithLoader from "./ImageWithLoader";

@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 
 import React from "react";
 import { Upload, Sparkles, UserCheck, CheckCircle2 } from "lucide-react";

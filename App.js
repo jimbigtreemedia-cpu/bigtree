@@ -1,0 +1,28 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Suspense, lazy } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { ThemeProvider } from "./components/ThemeProvider";
+import ScrollToTop from "./components/ScrollToTop";
+import RouteSEO from "./components/RouteSEO";
+import AnalyticsTracker from "./components/AnalyticsTracker";
+import { RouteSkeleton } from "./components/Skeletons";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const PortfolioDetailPage = lazy(() => import("./pages/PortfolioDetailPage"));
+const ProcessPage = lazy(() => import("./pages/ProcessPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const FreeTrialPage = lazy(() => import("./pages/FreeTrialPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const TeamPage = lazy(() => import("./pages/TeamPage"));
+const FAQPage = lazy(() => import("./pages/FAQPage"));
+const Legal = lazy(() => import("./components/Legal"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const PageFallback = () => _jsx(RouteSkeleton, {});
+const App = () => {
+    return (_jsx(ThemeProvider, { defaultTheme: "light", storageKey: "snapiums-theme", children: _jsxs(BrowserRouter, { children: [_jsx(RouteSEO, {}), _jsx(AnalyticsTracker, {}), _jsx(ScrollToTop, {}), _jsxs("div", { className: "font-display overflow-x-hidden w-full transition-colors duration-300", children: [_jsx(Navbar, {}), _jsx("main", { className: "relative flex min-h-screen w-full flex-col", children: _jsx(Suspense, { fallback: _jsx(PageFallback, {}), children: _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(HomePage, {}) }), _jsx(Route, { path: "/services", element: _jsx(ServicesPage, {}) }), _jsx(Route, { path: "/services/:serviceId", element: _jsx(ServiceDetailPage, {}) }), _jsx(Route, { path: "/portfolio", element: _jsx(PortfolioPage, {}) }), _jsx(Route, { path: "/portfolio/:projectId", element: _jsx(PortfolioDetailPage, {}) }), _jsx(Route, { path: "/process", element: _jsx(ProcessPage, {}) }), _jsx(Route, { path: "/pricing", element: _jsx(PricingPage, {}) }), _jsx(Route, { path: "/free-trial", element: _jsx(FreeTrialPage, {}) }), _jsx(Route, { path: "/contact", element: _jsx(ContactPage, {}) }), _jsx(Route, { path: "/team", element: _jsx(TeamPage, {}) }), _jsx(Route, { path: "/faq", element: _jsx(FAQPage, {}) }), _jsx(Route, { path: "/legal/privacy", element: _jsx(Legal, { type: "privacy" }) }), _jsx(Route, { path: "/legal/terms", element: _jsx(Legal, { type: "terms" }) }), _jsx(Route, { path: "*", element: _jsx(NotFoundPage, {}) })] }) }) }), _jsx(Footer, {})] })] }) }));
+};
+export default App;

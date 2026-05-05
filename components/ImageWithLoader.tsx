@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 
 import React, { useState } from "react";
 const ImageWithLoader = ({

@@ -233,3 +233,26 @@ const RouteSkeleton = () => {
   return  <LoadingShell children={page} />;
 };
 
+export {
+  HomeHeroSkeleton,
+  HomeServicesSkeleton,
+  HomePricingSkeleton,
+  ProcessSectionSkeleton,
+  TestimonialsSectionSkeleton,
+  TeamSectionSkeleton,
+  FAQSectionSkeleton,
+  HomeStickyCtaSkeleton,
+  HomeRouteSkeleton,
+  ServiceCardSkeleton,
+  ServicesPageRouteSkeleton,
+  PortfolioPageRouteSkeleton,
+  PricingCardSkeleton,
+  PricingPageRouteSkeleton,
+  ContactPageRouteSkeleton,
+  FreeTrialPageRouteSkeleton,
+  ServiceDetailPageRouteSkeleton,
+  PortfolioDetailPageRouteSkeleton,
+  LegalPageRouteSkeleton,
+  NotFoundPageRouteSkeleton,
+  RouteSkeleton
+};
