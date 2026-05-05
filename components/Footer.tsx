@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Instagram as InstagramIcon, Linkedin as LinkedinIcon, Twitter as TwitterIcon, Facebook as FacebookIcon, MapPin, Send, ChevronRight, Link as LinkIcon } from "lucide-react";
+import { Mail, Globe, MapPin, Send, ChevronRight, Link as LinkIcon } from "lucide-react";
 import { siteData } from "../data";
 
 const NEWSLETTER_ENDPOINT = "/backend/api/newsletter-subscribe.php";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Instagram: <InstagramIcon size={20} />,
-  LinkedIn: <LinkedinIcon size={20} />,
-  Twitter: <TwitterIcon size={20} />,
-  Facebook: <FacebookIcon size={20} />
+  Instagram: <Globe size={20} />,
+  LinkedIn: <Globe size={20} />,
+  Twitter: <Globe size={20} />,
+  Facebook: <Globe size={20} />
 };
 const Footer = () => {
   const { general } = siteData;
